@@ -43,5 +43,28 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+// Update the header
+document.querySelector('#header').textContent = bookStore.name
+
+// Create and append book elements
+const bookList = document.querySelector('#book-list')
+
+bookStore.books.forEach(function(book) {
+    const bookContainer = document.createElement('li')
+
+    const bookImage = document.createElement('img')
+    bookImage.src = book.imageUrl
+
+    const bookTitle = document.createElement('h3')
+    bookTitle.textContent = book.title
+
+    const bookAuthor = document.createElement('p')
+    bookAuthor.textContent = book.author
+
+    bookContainer.appendChild(bookImage)
+    bookContainer.appendChild(bookTitle)
+    bookContainer.appendChild(bookAuthor)
+
+    bookList.appendChild(bookContainer)
+})
 
